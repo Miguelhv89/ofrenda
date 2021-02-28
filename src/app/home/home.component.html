@@ -1,0 +1,18 @@
+
+<form [formGroup]="frmHome" class="row g-3 needs-validation" novalidate (ngSubmit)="onClick($event)" >
+    <div class="mb-3 position-relative">
+        <label for="txtName" class="form-label">N° o Nombre Completo</label>
+        <input type="text" class="form-control" id="txtName" formControlName="name" placeholder="Ingrese su numero o nombre aquí">
+        <div class="invalid-tooltip">
+            Looks good!
+          </div>
+    </div>
+    <div class="mb-3">
+        <label for="txtMoney" class="form-label">Cantidad</label>
+        <input type="text" class="form-control" id="txtMoney" formControlName="money" placeholder="Ingrese el Monto aquí">
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit" >Confirmar Ofrenda</button>
+    </div>
+</form>
