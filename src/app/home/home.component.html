@@ -9,10 +9,10 @@
     </div>
     <div class="mb-3">
         <label for="txtMoney" class="form-label">Cantidad</label>
-        <input type="text" class="form-control" id="txtMoney" formControlName="money" placeholder="Ingrese el Monto aquí">
+        <input type="text" class="form-control" id="txtMoney" formControlName="amount" placeholder="Ingrese el Monto aquí">
     </div>
 
     <div class="col-12">
-        <button class="btn btn-primary" type="submit" >Confirmar Ofrenda</button>
+        <button class="btn btn-primary" type="submit" [disabled] = "loading" >Confirmar Ofrenda</button>
     </div>
 </form>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HomeService } from '../services/home.services';
 
 @Component({
   selector: 'app-home',
@@ -10,20 +11,28 @@ export class HomeComponent implements OnInit {
 
   public frmHome = new FormGroup({
     name: new FormControl('', Validators.required),
-    money: new FormControl('', [Validators.required, Validators.min(0.2)])
+    amount: new FormControl('', [Validators.required, Validators.min(0.2)])
   });
+  public loading: boolean = false;
 
-  constructor() { }
+  constructor( private serviceHome: HomeService) { }
   
   ngOnInit(): void {
     
   }
 
   onClick(e:Event){
-    if (this.frmHome.valid) {
-      console.log(e)
+    try{
+      this.loading = true;
+      if (this.frmHome.valid) {
+        this.serviceHome.saveOffer( this.frmHome.value );
+        console.log("Se guardo")
+      }
+    } catch(e) {
+      console.error(e);
+    } finally {
+      this.loading = false;
     }
-    console.log(this.frmHome)
     e.preventDefault();
   }
 }
