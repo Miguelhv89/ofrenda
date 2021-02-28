@@ -14,11 +14,12 @@ export class HomeComponent implements OnInit {
     amount: new FormControl('', [Validators.required, Validators.min(0.2)])
   });
   public loading: boolean = false;
+  public saveSuccess: boolean = false;
 
   constructor( private serviceHome: HomeService) { }
   
   ngOnInit(): void {
-    
+   console.log(this.frmHome.controls['name']) 
   }
 
   onClick(e:Event){
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
       this.loading = true;
       if (this.frmHome.valid) {
         this.serviceHome.saveOffer( this.frmHome.value );
-        console.log("Se guardo")
+        this.saveSuccess = true;
       }
     } catch(e) {
       console.error(e);
