@@ -12,4 +12,8 @@ export class HomeService {
     public saveOffer(data: IOffering) {
         this.fs.collection('offering').add(data);
     }
+
+    public getOffer(){
+        return this.fs.collection('offering', ref => ref.orderBy('name'));
+    }
 }

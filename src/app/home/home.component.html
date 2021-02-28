@@ -1,24 +1,28 @@
+<div class="row justify-content-md-center">
+    <div class="col-md-6 col-xs-12">
 
-<form [formGroup]="frmHome" class="row g-3 needs-validation" novalidate (ngSubmit)="onClick($event)" *ngIf="!saveSuccess" >
-    <div class="mb-3 position-relative">
-        <label for="txtName" class="form-label">N° o Nombre Completo</label>
-        <input type="text" class="form-control" id="txtName" formControlName="name" placeholder="Ingrese su numero o nombre aquí">
-        <div class="alert alert-danger" role="alert" *ngIf="frmHome.controls['name'].touched && frmHome.controls['name'].invalid">
-            Debe ingresar su Número de Mienbro o su nombre
+        <form [formGroup]="frmHome" class="row g-3 needs-validation bg-color-home" novalidate (ngSubmit)="onClick($event)" *ngIf="!saveSuccess" >
+            <div class="mb-3 position-relative">
+                <label for="txtName" class="form-label">N° o Nombre Completo</label>
+                <input type="text" class="form-control" id="txtName" formControlName="name" placeholder="Ingrese su numero o nombre aquí">
+                <div class="alert alert-danger" role="alert" *ngIf="frmHome.controls['name'].touched && frmHome.controls['name'].invalid">
+                    Debe ingresar su Número de Miembro o su nombre
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="txtMoney" class="form-label">Cantidad</label>
+                <input type="number" class="form-control" id="txtMoney" formControlName="amount" placeholder="Ingrese el Monto aquí">
+                <div class="alert alert-danger" role="alert" *ngIf="frmHome.controls['amount'].touched && frmHome.controls['amount'].invalid">
+                    Debe ingresar el monto a prometer
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit" [disabled] = "loading" >Prometer</button>
+            </div>
+        </form>
+        <div class="alert alert-success" role="alert" *ngIf="saveSuccess">
+            Su promesa fue registrada - Bendiciones!!
         </div>
     </div>
-    <div class="mb-3">
-        <label for="txtMoney" class="form-label">Cantidad</label>
-        <input type="number" class="form-control" id="txtMoney" formControlName="amount" placeholder="Ingrese el Monto aquí">
-        <div class="alert alert-danger" role="alert" *ngIf="frmHome.controls['amount'].touched && frmHome.controls['amount'].invalid">
-            Debe ingresar el monto a prometer
-        </div>
-    </div>
-
-    <div class="col-12">
-        <button class="btn btn-primary" type="submit" [disabled] = "loading" >Prometer</button>
-    </div>
-</form>
-<div class="alert alert-success" role="alert" *ngIf="saveSuccess">
-    Su promesa fue registrada - Bendiciones!!
 </div>
